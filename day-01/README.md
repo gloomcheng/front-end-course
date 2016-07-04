@@ -568,31 +568,7 @@ zh-Hant-TW 臺灣使用的繁體中文
 </html>
 ```
 
-成果預覽
-<div id="example">
-  <div style="border: 1px solid #ccc; background: pink;">
-    <h1>這裡是網頁標題</h1>
-    <p>歡迎來到我的網站</p>
-  </div>
-  <div style="border: 1px solid #ccc; background: blue; min-height: 200px;">
-    <div class="main-content" style="border: 1px solid #ccc;background: yellow;min-height: 200px;width: 60%;margin-left: 20%;">
-      <p>這裡是主要內容段落</p>
-      <p>這裡是主要內容段落</p>
-      <p>這裡是主要內容段落</p>
-      <p>這裡是主要內容段落</p>
-      <p>這裡是主要內容段落</p>
-    </div>
-    <div class="left-sidebar" style="border: 1px solid #ccc;background: green;min-height: 200px;width: 20%;float: left;margin-top: -200px;">
-      <p>這裡是側邊欄</p>
-    </div>
-    <div class="right-sidebar" style="border: 1px solid #ccc;background: green;min-height: 200px;width: 20%;float: right;margin-top: -200px;">
-      <p>這裡是右側欄</p>
-    </div>
-  </div>
-  <div style="border: 1px solid #ccc; background: pink;">
-    <p>這裡是頁尾資訊</p>
-  </div>
-</div>
+![成果預覽](https://dl.dropboxusercontent.com/u/9320006/%E7%B6%B2%E9%A0%81%E6%8E%92%E7%89%88%E7%AF%84%E4%BE%8B.png)
 
 ### 嵌入其他網頁
 
@@ -605,6 +581,14 @@ zh-Hant-TW 臺灣使用的繁體中文
 <iframe width="640" height="360" src="https://www.youtube.com/embed/vCKESBmlP9o" frameborder="0" allowfullscreen></iframe>
 
 `<iframe>` 元素可用來將其他網頁內容的資訊嵌入到 HTML 文件，例如我們可以將 YouTube 影片或 Google 地圖嵌入到我們的網頁中。
+
+## 課後練習
+
+請運用今天課程學到的知識，試著編寫出類似下圖排版樣式的 HTML 文件。
+
+![作業](https://dl.dropboxusercontent.com/u/9320006/%E5%8C%97%E5%95%86%20CDM%20%E5%AF%A6%E7%BF%92%E6%8B%9B%E5%8B%9F%E7%B6%B2%E7%AB%99.png)
+
++ [解答](homework.htm)
 
 ## 參考資料
 
