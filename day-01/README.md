@@ -14,7 +14,7 @@ URL 的格式為：`scheme:[//[user:password@]host[:port]][/]path[?query][#fragm
 + user/password：登入該台網路主機所須的帳號、密碼，通常是 `ftp` 之類的服務才會限制需要登入帳號、密碼
 + host：網站位置；通常會再細分成「主機」+「網域」，例如 `www.google.com.tw` 的「網域」是 `google.com.tw`（通常是到 .com.tw 前），而「主機」則是 `www`
 + port：主機連線的埠口，例如 `80`（http）、`443`（https）、`21`（ftp）等，其他可以查看「[TCP/UDP埠列表](https://zh.wikipedia.org/wiki/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8)」
-+ path：網址路徑，例如 `about.htm`；如果沒有指定，預設會抓根目錄下的 `index.htm`
++ path：網址路徑，例如 `about.html`；如果沒有指定，預設會抓根目錄下的 `index.html`
 + query：查詢字串，通常是用於動態程式語言傳遞參數所用
 + fragment：錨點，可以快速指向到頁面特定段落的功能
 
@@ -41,9 +41,9 @@ $ nslookup
 
 ### 排版引擎（Layout Engine）
 
-當電腦透過 DNS 將網域轉換成 IP 位址，並成功與遠端電腦建立連線後，接下來就會把我們在網址輸入的資源請求送回來，同樣以在網址輸入 `tw.yahoo.com` 為例，當電腦透過 DNS 查詢得知其實是要連線到 `116.214.12.74` 後，就會送資源請求給對方的電腦，而這個資源請求就是指預設的 `index.htm` 頁面。
+當電腦透過 DNS 將網域轉換成 IP 位址，並成功與遠端電腦建立連線後，接下來就會把我們在網址輸入的資源請求送回來，同樣以在網址輸入 `tw.yahoo.com` 為例，當電腦透過 DNS 查詢得知其實是要連線到 `116.214.12.74` 後，就會送資源請求給對方的電腦，而這個資源請求就是指預設的 `index.html` 頁面。
 
-當與對方建立連線後（也就是 yahoo 的伺服器是可以連線的），就會回傳 `index.htm` 這個頁面的網頁原始碼回來，交由瀏覽器解讀。
+當與對方建立連線後（也就是 yahoo 的伺服器是可以連線的），就會回傳 `index.html` 這個頁面的網頁原始碼回來，交由瀏覽器解讀。
 
 請注意，此時取得的 HTML 文件並沒有包含這個網頁內的圖片、樣式表（stylesheet）及任何多媒體資源，而是在瀏覽器解讀 HTML 結構時，才會根據需求再向對方索取這些多媒體資源。
 
@@ -311,7 +311,7 @@ zh-Hant-TW 臺灣使用的繁體中文
 
 + `href`：設定 `<a>` 元素的連結網址，可使用的網址類型有
   + 絕對網址：如 `http://www.google.com`
-  + 相對網址：如 `./index.htm`
+  + 相對網址：如 `./index.html`
   + 錨點：如 `#summary`，就會跳到同頁面中 `id` 為 `summary` 的元素（例如跳到 `<h2 id="summary"></h2>`）
   + Email：如 `mailto:gloomcheng@gmail.com`，Email 的連結除了可以設定收件者 Email 之外，還可以同時設定 Email 的主旨、本文，甚至也可以同時設定副本、密件副本的收件者 Email，例如
    `<a href="mailto:gloomcheng@gmail.com?subject=感謝您的貢獻&body=謝謝您撰寫這份教材，我看完之後真的有比較理解網頁的運作原理及網頁的開發方式">寄信感謝作者</a>`，如果你想進一步瞭解怎麼產生 Email 連結，可使用「[Mailto 產生器](http://www.mailto.co.uk/)」
@@ -588,7 +588,7 @@ zh-Hant-TW 臺灣使用的繁體中文
 
 ![作業](https://dl.dropboxusercontent.com/u/9320006/%E5%8C%97%E5%95%86%20CDM%20%E5%AF%A6%E7%BF%92%E6%8B%9B%E5%8B%9F%E7%B6%B2%E7%AB%99.png)
 
-+ [解答](homework.htm)
++ [解答](homework.html)
 
 ## 參考資料
 
