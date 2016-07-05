@@ -10,13 +10,13 @@
 
 URL 的格式為：`scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]`
 
-+ scheme：網路服務的類型，例如 `http`、`https`、`ftp` 等
-+ user/password：登入該台網路主機所須的帳號、密碼，通常是 `ftp` 之類的服務才會限制需要登入帳號、密碼
-+ host：網站位置；通常會再細分成「主機」+「網域」，例如 `www.google.com.tw` 的「網域」是 `google.com.tw`（通常是到 .com.tw 前），而「主機」則是 `www`
-+ port：主機連線的埠口，例如 `80`（http）、`443`（https）、`21`（ftp）等，其他可以查看「[TCP/UDP埠列表](https://zh.wikipedia.org/wiki/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8)」
-+ path：網址路徑，例如 `about.html`；如果沒有指定，預設會抓根目錄下的 `index.html`
-+ query：查詢字串，通常是用於動態程式語言傳遞參數所用
-+ fragment：錨點，可以快速指向到頁面特定段落的功能
++ `scheme`：網路服務的類型，例如 `http`、`https`、`ftp` 等
++ `user`/`password`：登入該台網路主機所須的帳號、密碼，通常是 `ftp` 之類的服務才會限制需要登入帳號、密碼
++ `host`：網站位置；通常會再細分成「主機」+「網域」，例如 `www.google.com.tw` 的「網域」是 `google.com.tw`（通常是到 `.com.tw` 前），而「主機」則是 `www`
++ `port`：主機連線的埠口，例如 `80`（`http`）、`443`（`https`）、`21`（`ftp`）等，其他可以查看「[TCP/UDP埠列表](https://zh.wikipedia.org/wiki/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8)」
++ `path`：網址路徑，例如 `about.html`；如果沒有指定，預設會抓根目錄下的 `index.html`
++ `query`：查詢字串，通常是用於動態程式語言傳遞參數所用
++ `fragment`：錨點，可以快速指向到頁面特定段落的功能
 
 接下來，我們以 `http://maps.google.com` 這個網址為例，練習拆解一下網址結構。這個網址的 `scheme` 是使用 `http`；因為 http 預設開放給所有使用者瀏覽，所以不需要登入帳密（當然也有需要登入帳密才能查看的網站），所以不用設 `user`/`password`；`path` 中的 `google.com` 是網域（domain）名稱、`maps` 是子網域（subdomain）名稱或主機名稱；除非有特殊原因沒有採用預設 `port`，例如 `http://example.com:8080`，我們才需要手動輸入 `8080`，不然預設是會直接補上預設值 `80`；`path` 沒設的話預設會直接存取根目錄下的首頁。
 
