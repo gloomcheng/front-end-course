@@ -1,0 +1,154 @@
+.frame {
+  width: 960px;
+  height: 600px;
+  margin: 0 auto;
+}
+.scene1 {
+  background: #000;
+}
+#main {
+  background:
+    -webkit-image-set(
+      url(../images/main@2x.jpg) 2x);
+}
+#day {
+  background:
+    -webkit-image-set(
+      url(../images/day@2x.jpg) 2x);
+}
+#night {
+  background:
+    -webkit-image-set(
+      url(../images/night@2x.jpg) 2x);
+}
+#day #routeA {
+  background:
+    -webkit-image-set(
+      url(../images/day/A@2x.png) 2x);
+  width: 362.5px;
+  height: 262.5px;
+  position: absolute;
+  margin-left: 200px;
+  margin-top: 50px;
+}
+#day #routeB {
+  background:
+    -webkit-image-set(
+      url(../images/day/B@2x.png) 2x);
+  width: 351.5px;
+  height: 277px;
+  position: absolute;
+  margin-left: 560px;
+  margin-top: 50px;
+}
+#day #routeC {
+  background:
+    -webkit-image-set(
+      url(../images/day/C@2x.png) 2x);
+  width: 348px;
+  height: 270.5px;
+  position: absolute;
+  margin-left: 120px;
+  margin-top: 310px;
+}
+#day #routeD {
+  background:
+    -webkit-image-set(
+      url(../images/day/D@2x.png) 2x);
+  width: 353.5px;
+  height: 266px;
+  position: absolute;
+  margin-left: 520px;
+  margin-top: 310px;
+}
+#night #routeA {
+  background:
+    -webkit-image-set(
+      url(../images/night/A.png) 1x,
+      url(../images/night/A@2x.png) 2x);
+  width: 354px;
+  height: 274px;
+  position: absolute;
+  margin-left: 200px;
+  margin-top: 40px;
+}
+#night #routeB {
+  background:
+    -webkit-image-set(
+      url(../images/night/B.png) 1x,
+      url(../images/night/B@2x.png) 2x);
+  width: 355px;
+  height: 256px;
+  position: absolute;
+  margin-left: 560px;
+  margin-top: 50px;
+}
+#night #routeC {
+  background:
+    -webkit-image-set(
+      url(../images/night/C.png) 1x,
+      url(../images/night/C@2x.png) 2x);
+  width: 350px;
+  height: 271px;
+  position: absolute;
+  margin-left: 120px;
+  margin-top: 295px;
+}
+#night #routeD {
+  background:
+    -webkit-image-set(
+      url(../images/night/D.png) 1x,
+      url(../images/night/D@2x.png) 2x);
+  width: 342px;
+  height: 261px;
+  position: absolute;
+  margin-left: 520px;
+  margin-top: 310px;
+}
+.btn {
+  display: inline-block;
+  font-size: 0;
+}
+.btn_day {
+  background:
+    -webkit-image-set(
+      url(../images/btn_day@2x.png) 2x);
+  width: 440.5px;
+  height: 152.5px;
+  position: absolute;
+  margin-top: 230px;
+  margin-left: 519px;
+}
+.btn_night {
+  background:
+    -webkit-image-set(
+      url(../images/btn_night@2x.png) 2x);
+  width: 368px;
+  height: 149.5px;
+  position: absolute;
+  margin-top: 367px;
+  margin-left: 592px;
+}
+.btn_home {
+  background:
+    -webkit-image-set(
+      url(../images/btn_home@2x.png) 2x);
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  margin-top: 140px;
+  margin-left: 10px;
+}
+.btn_next {
+  background:
+    -webkit-image-set(
+      url(../images/btn_next@2x.png) 2x);
+  width: 51px;
+  height: 34px;
+  position: absolute;
+  margin-top: -40px;
+  margin-left: 895px;
+}
+.routed {
+  display: none;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>睡不著繪本</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-3.0.0.min.js"></script>
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <div id="scene">
+    <div id="main" class="frame">
+      <a href="#day" class="btn btn_day">是誰在早上睡覺？</a>
+      <a href="#night" class="btn btn_night">是誰在晚上睡覺？</a>
+    </div>
+    <div id="day" class="frame" style="display:none;">
+      <div class="scene0" style="display:none;">
+        <a href="#" id="home" class="btn_home"></a>
+        <a href="#" id="routeA" class="path unroute"></a>
+        <a href="#" id="routeB" class="path unroute"></a>
+        <a href="#" id="routeC" class="path unroute"></a>
+        <a href="#" id="routeD" class="path unroute"></a>
+      </div>
+      <div class="scene1" style="display:none;">
+        <video width="960" height="600" id="stage" class="act act2" style="display:none;">
+          <source src="res/day/dayp3_music.mp4" type="video/mp4" />
+        </video>
+        <video width="960" height="600" id="stage" class="act act3" style="display:none;">
+          <source src="res/day/dayp4_music.mp4" type="video/mp4" />
+        </video>
+        <video width="960" height="600" id="stage" class="act act4" style="display:none;">
+          <source src="res/day/dayp5_music.mp4" type="video/mp4" />
+        </video>
+        <video width="960" height="600" id="stage" class="act act5" style="display:none;">
+          <source src="res/day/dayp6_music.mp4" type="video/mp4" />
+        </video>
+        <a href="#" id="next" class="btn_next"></a>
+      </div>
+    </div>
+    <div id="night" class="frame" style="display:none;">
+      <div class="scene0" style="display:none;">
+        <a href="#" id="home" class="btn_home"></a>
+        <a href="#" id="routeA" class="path unroute"></a>
+        <a href="#" id="routeB" class="path unroute"></a>
+        <a href="#" id="routeC" class="path unroute"></a>
+        <a href="#" id="routeD" class="path unroute"></a>
+      </div>
+      <div class="scene1" style="display:none;">
+        <video width="960" height="600" id="stage" class="act act2" style="display:none;">
+          <source src="res/night/nip3_music.mp4" type="video/mp4" />
+        </video>
+        <video width="960" height="600" id="stage" class="act act3" style="display:none;">
+          <source src="res/night/nip4_music.mp4" type="video/mp4" />
+        </video>
+        <video width="960" height="600" id="stage" class="act act4" style="display:none;">
+          <source src="res/night/nip5_music.mp4" type="video/mp4" />
+        </video>
+        <video width="960" height="600" id="stage" class="act act5" style="display:none;">
+          <source src="res/night/nip6_music.mp4" type="video/mp4" />
+        </video>
+        <a href="#" id="next" class="btn_next"></a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

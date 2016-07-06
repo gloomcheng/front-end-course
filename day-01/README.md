@@ -602,7 +602,7 @@ zh-Hant-TW 臺灣使用的繁體中文
 
 ![作業](https://dl.dropboxusercontent.com/u/9320006/%E5%8C%97%E5%95%86%20CDM%20%E5%AF%A6%E7%BF%92%E6%8B%9B%E5%8B%9F%E7%B6%B2%E7%AB%99.png)
 
-+ [解答](sample-01.html)
++ [解答](sample-01/index.html)
 
 ## 參考資料
 
