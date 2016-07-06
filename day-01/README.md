@@ -11,24 +11,24 @@
 URL 的格式為：`scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]`
 
 + `scheme`：網路服務的類型，例如 `http`、`https`、`ftp` 等
-+ `user`/`password`：登入該台網路主機所須的帳號、密碼，通常是 `ftp` 之類的服務才會限制需要登入帳號、密碼
-+ `host`：網站位置；通常會再細分成「主機」+「網域」，例如 `www.google.com.tw` 的「網域」是 `google.com.tw`（通常是到 `.com.tw` 前），而「主機」則是 `www`
-+ `port`：主機連線的埠口，例如 `80`（`http`）、`443`（`https`）、`21`（`ftp`）等，其他可以查看「[TCP/UDP埠列表](https://zh.wikipedia.org/wiki/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8)」
++ `user`/`password`：登入該台網路主機所須的帳號、密碼，通常是 `ftp` 之類的服務才會限制登入
++ `host`：網站位置；通常會再細分成「子網域」+「網域」，例如 `www.google.com.tw` 的「網域」是 `google.com.tw`（通常是到 `.com.tw` 前），而「子網域」則是 `www`
++ `port`：主機連線的埠口，例如 `80`（`http`）、`443`（`https`）、`21`（`ftp`）等，你也可以查看「[TCP/UDP埠列表](https://zh.wikipedia.org/wiki/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8)」進一步瞭解還有哪些服務
 + `path`：網址路徑，例如 `about.html`；如果沒有指定，預設會抓根目錄下的 `index.html`
 + `query`：查詢字串，通常是用於動態程式語言傳遞參數所用
 + `fragment`：錨點，可以快速指向到頁面特定段落的功能
 
-接下來，我們以 `http://maps.google.com` 這個網址為例，練習拆解一下網址結構。這個網址的 `scheme` 是使用 `http`；因為 http 預設開放給所有使用者瀏覽，所以不需要登入帳密（當然也有需要登入帳密才能查看的網站），所以不用設 `user`/`password`；`path` 中的 `google.com` 是網域（domain）名稱、`maps` 是子網域（subdomain）名稱或主機名稱；除非有特殊原因沒有採用預設 `port`，例如 `http://example.com:8080`，我們才需要手動輸入 `8080`，不然預設是會直接補上預設值 `80`；`path` 沒設的話預設會直接存取根目錄下的首頁。
+接下來，我們以 `http://maps.google.com` 這個網址為例，練習拆解一下網址結構。這個網址的 `scheme` 是使用 `http`；因為開放給所有使用者瀏覽，所以不需要登入帳密（當然也有需要登入帳密才能查看的網站），不需設定 `user`/`password`；`path` 中的 `google.com` 是網域（domain）名稱、`maps` 是子網域（subdomain）名稱（或稱作主機名稱）；除非有特殊原因沒有採用預設 `port`，例如 `http://example.com:8080`，我們才需要手動輸入 `8080`，不然會直接補上預設值 `80`；`path` 沒設的話則會預設直接存取根目錄下的首頁。
 
 ### 網域名稱系統（Domain Name System, DNS）
 
-輸入網址（URL）之後，所以瀏覽器就可以透過網路擷取到對方主機的網頁回來，並呈現成我們看到的頁面了嗎？沒這麼簡單！當我們輸入網址後，首先只是讓瀏覽器知道我們是想存取網路上的哪個資源，然而，在真正連線到對方主機前，還有一個難關要先跨過。
+輸入網址（URL）之後，那麼瀏覽器就可以透過網路到對方主機擷取網頁回來，並呈現成我們看到的頁面了嗎？沒這麼簡單！當我們輸入網址後，首先只是讓瀏覽器知道我們是想存取網路上的哪個資源，然而，在真正連線到對方主機前，還有一個難關要先跨過。
 
 一樣以 `tw.yahoo.com` 為例，我們看到這個網址時都會知道這是指「Yahoo 奇摩」網站，但對電腦網路來說卻不是這樣的，電腦網路是認不得這個「[網域名稱](https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D)」的，網域名稱只是方便我們人類記憶、溝通使用的代名詞，電腦網路只能認得網路上的唯一地址，也就是「[IP 位址](https://zh.wikipedia.org/wiki/IP%E5%9C%B0%E5%9D%80)」。
 
 IP 位址有分兩種格式，分別是目前常見的 [IPv4](https://zh.wikipedia.org/wiki/IPv4) 及正在逐步推廣使用的 [IPv6](https://zh.wikipedia.org/wiki/IPv6)，而這個才是網路上識別電腦的唯一位址，你可以把 IP 位址想像成是電腦在網際網路上的門牌號碼，我們得透過這個門牌號碼才能找到這台電腦是位於哪個國家、哪個縣市、哪個城市，甚至是哪個建築物的哪個房間內。
 
-因此當我們試圖存取 `tw.yahoo.com` 時，電腦其實不能知道這個網址的確切位址在哪裡，所以得先透過「[網域名稱系統](https://zh.wikipedia.org/zh+tw/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F)」來進行網域和 IP 的轉換工作，並將 IP 位址回傳給你的電腦，這樣你的電腦才能接續從網路上找到對應的主機去。
+因此當我們試圖存取 `tw.yahoo.com` 時，電腦其實不能知道這個網址的確切位址在哪裡，所以得先透過「[網域名稱系統](https://zh.wikipedia.org/zh+tw/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F)」來進行網域和 IP 的轉換工作，並將 IP 位址回傳給你的電腦，這樣你的電腦才能接續從網路上找到對應的主機。
 
 ##### 牛刀小試
 
@@ -43,11 +43,11 @@ $ nslookup
 
 當電腦透過 DNS 將網域轉換成 IP 位址，並成功與遠端電腦建立連線後，接下來就會把我們在網址輸入的資源請求送回來，同樣以在網址輸入 `tw.yahoo.com` 為例，當電腦透過 DNS 查詢得知其實是要連線到 `116.214.12.74` 後，就會送資源請求給對方的電腦，而這個資源請求就是指預設的 `index.html` 頁面。
 
-當與對方建立連線後（也就是 yahoo 的伺服器是可以連線的），就會回傳 `index.html` 這個頁面的網頁原始碼回來，交由瀏覽器解讀。
+當與對方建立連線後，對方電腦就會回傳 `index.html` 這個頁面的網頁原始碼回來，交由瀏覽器解讀。
 
-請注意，此時取得的 HTML 文件並沒有包含這個網頁內的圖片、樣式表（stylesheet）及任何多媒體資源，而是在瀏覽器解讀 HTML 結構時，才會根據需求再向對方索取這些多媒體資源。
+請注意，此時取得的 HTML 文件並沒有包含這個網頁內的圖片、樣式表（stylesheet）及其他多媒體資源，而是在瀏覽器解讀 HTML 結構時，才會根據需求再向對方索取這些附加資源。
 
-至於瀏覽器怎麼解讀 HTML 文件並產生成我們所閱讀的頁面呢？一切都是仰賴瀏覽器的核心程式「[排版引擎](https://zh.wikipedia.org/zh+tw/%E6%8E%92%E7%89%88%E5%BC%95%E6%93%8E)」來負責處理的，排版引擎一方面會解譯 HTML 文件標記，另一方面會整理 CSS 樣式資料，然後再將兩者整合為一，產出最終的排版結果。
+至於瀏覽器怎麼解讀 HTML 文件並產生成我們所閱讀的頁面呢？這就得提到瀏覽器的核心程式－「[排版引擎](https://zh.wikipedia.org/zh+tw/%E6%8E%92%E7%89%88%E5%BC%95%E6%93%8E)」。排版引擎一方面會解譯 HTML 文件的標記內容，另一方面會整理 CSS 樣式資料，然後再將兩者整合為一，產出最終的排版結果，如下圖所示。
 
 ![排版引擎的基本流程](http://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/flow.png)
 
@@ -65,11 +65,11 @@ $ nslookup
 + [Safari](https://zh.wikipedia.org/wiki/Safari)：[Webkit](https://zh.wikipedia.org/wiki/WebKit)
 + [Firefox](https://zh.wikipedia.org/wiki/Firefox)：[Gecko](https://zh.wikipedia.org/wiki/Gecko)
 
-由此可知，為何網頁開發者都要針對不同的瀏覽器做排版樣式上的調整，以達到在各種不同瀏覽器下都能獲得共同的瀏覽體驗，其原因就在於這些瀏覽器採用不同的排版引擎，因此在解讀 HTML 文件或 CSS 樣式表時都會產生細微的差異，以致於會造成有部分細微的細節會有跑版或破版的現象發生。
+由此可知，為何網頁開發者都要針對不同的瀏覽器做排版樣式上的調整，以達到在各種不同瀏覽器下都能獲得共同的瀏覽體驗，其原因就在於這些瀏覽器採用不同的排版引擎，因此在解讀 HTML 文件或 CSS 樣式表時都會產生細微的差異，以致於造成跑版或破版的現象發生。
 
 ## 認識 HTML
 
-好不容易，我們的電腦總算可以從遠端主機取得 HTML 文件並交給瀏覽器解讀且產生成我們易於閱讀的文件，接下來我們就要來認識怎麼撰寫瀏覽器看得懂的文件。
+好不容易，我們的電腦總算可以從遠端主機取得 HTML 文件，交給瀏覽器解讀且產生成我們易於閱讀的文件，接下來我們就要來認識怎麼撰寫瀏覽器看得懂的文件。
 
 瀏覽器解讀的文件是採用「[超文件標示語言（HyperText Markup Language, HTML）](https://zh.wikipedia.org/wiki/HTML)」，運用一種「[超文字（hypertext）](https://zh.wikipedia.org/wiki/%E8%B6%85%E6%96%87%E6%9C%AC)」的設計概念，來讓文件與文件間可以產生關連，最簡單的案例就是我們在網頁裡看到的「連結」，點按連結之後就可以跳到其他頁面去，這就是 `hypertext` 了。
 
@@ -81,7 +81,7 @@ $ nslookup
 
 ### HTML 元素
 
-要能夠開發、編寫網頁內容，就一定要熟知 HTML 元素，並瞭解各種 HTML 元素的用法。在開始下面章節前，建議你應該先瀏覽下「[HTML 元素](https://developer.mozilla.org/zh+TW/docs/Web/HTML/Element)」的頁面，以對 HTML 元素有初步的瞭解，同時也注意下哪些元素是只適用在 HTML5，而哪些元素又只適用在 HTML4。
+要能夠開發、編寫網頁內容，就一定要熟知 HTML 元素，並瞭解各種 HTML 元素的用法。在開始下面章節前，建議你應該先瀏覽下「[HTML 元素](https://developer.mozilla.org/zh+TW/docs/Web/HTML/Element)」的頁面，以對 HTML 元素有初步的瞭解，同時也注意下哪些元素是只適用在 HTML5，而哪些元素又只適用在 HTML4。還有，因為 HTML 文件開發的前提應該是要適用於各種瀏覽器，所以也[應避免使用過時的語法](https://developer.mozilla.org/zh-TW/docs/Web_%E9%96%8B%E7%99%BC/Historical_artifacts_to_avoid)，以維持 HTML 文件的可讀性。
 
 ### 有效的 HTML 文件的結構
 
@@ -102,7 +102,7 @@ $ nslookup
 3. `<head>`：定義 HTML 文件[後設資料（meta data）](https://zh.wikipedia.org/wiki/%E5%85%83%E6%95%B0%E6%8D%AE)的元素，包括文件的標題、CSS 樣式表及 JavaScript 腳本程式，以及提供給搜尋引擎或社交媒體網站辨識的描述資訊。每個 HTML 文件只能有一個 `<head>` 元素。https://developer.mozilla.org/zh+CN/docs/Web/HTML/Element/head
 4. `<title>`：定義 HTML 文件標題的元素，這裡的標題會出現在瀏覽器的頁籤上；請注意，這裡的標題不會出現在瀏覽器的內容區。https://developer.mozilla.org/zh+CN/docs/Web/HTML/Element/title
 5. `<body>`：用來包含 HTML 文件的主要內容，也是呈現在瀏覽器內容區的主要資訊來源。每個 HTML 文件只能有一個 `<body>` 元素。https://developer.mozilla.org/zh+CN/docs/Web/HTML/Element/body
-6. `<!++ ++>`：用來定義 HTML 文件中的註解內容，瀏覽器會忽略註解內容，只有在「檢視原始碼」的狀態下才會看到，主要是提供給網頁開發人員維護用的資訊。https://developer.mozilla.org/en+US/docs/Web/Guide/HTML/The_Importance_of_Correct_HTML_Commenting
+6. `<!-- -->`：用來定義 HTML 文件中的註解內容，瀏覽器會忽略註解內容，只有在「檢視原始碼」的狀態下才會看到，主要是提供給網頁開發人員維護用的資訊。https://developer.mozilla.org/en+US/docs/Web/Guide/HTML/The_Importance_of_Correct_HTML_Commenting
 
 一份格式正確的 HTML 文件，大體上都會包含以上說明的 HTML 元素（網頁註解則視需求而定），也就算得上是「有效的 HTML 文件」（valid HTML document）；如果你想要進一步瞭解何謂有效的 HTML 文件，或是想檢驗你所撰寫的 HTML 文件是否符合有效文件，你可以利用 [W3C 標記檢驗服務](https://developer.mozilla.org/en+US/docs/Web/Guide/HTML/The_Importance_of_Correct_HTML_Commenting)進行檢驗，以瞭解怎麼改善你的 HTML 文件使其符合有效文件。
 
@@ -175,6 +175,20 @@ zh-Hant-TW 臺灣使用的繁體中文
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script src="scripts.js"></script>
 </head>
+```
+
+### HTML 文件的編碼方式
+
+有時候我們在瀏覽網頁時會看到「亂碼」，通常都是因為[瀏覽器的字元編碼](https://zh.wikipedia.org/wiki/HTML%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81)設定錯誤的問題。由於電腦只能儲存 0 與 1 兩種狀態，所以電腦之間的資料交換都必須先將資料轉換成 0/1 型式的內容，例如說我想要傳送「`A`」給對方的電腦，但我怎麼知道要將 `A` 轉換成什麼數字呢？這個問題就要靠[字元編碼](https://zh.wikipedia.org/wiki/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81)來解決，字元編碼是電腦之間用來溝通的一套符號集，以剛剛的例子來說，我們必須先將 `A` 轉換成一個「數字」，然後傳送給對方的電腦，而對方的電腦取得這個「數字」時，也要能夠知道轉換回 `A`。就像「摩斯電碼」一樣，使用摩斯電腦交換資訊的兩方，都要有一本轉譯本，才能將接受到的資訊轉譯回真實的資料內容。
+
+如果我們只是要交換「英文」資料，那事情就簡單很多，因為電腦在很早期就已經發展出「[ASCII（American Standard Code for Information Interchange，美國資訊交換標準代碼）](https://zh.wikipedia.org/zh-tw/ASCII)，就例如剛剛提到的 `A` 會先轉譯成 `65`（也就是二進位的 `01000001`），然後將這一串二進位資料型式的內容傳送給對方，對方電腦收到這串二進位資料型式的內容後，會去對照 ASCII 表，查到這串資料其實就是指 `A`，因此要順利完成進行資料交換的話，首要條件是雙方都使用同一套編碼方式。
+
+講到這裡，應該就會知道為什麼在瀏覽網頁時會看到「亂碼」了吧，其實亂碼的出現就是因為資料交換的兩方不是採用同一套編碼方式，以致於無法呈現正確的資料內容。那麼為什麼有時我們明明在網頁內容寫的是中文，也都正確的顯示，但透過瀏覽器顯示時又會造成亂碼呢？這是段[很久遠的歷史故事](http://python.ez2learn.com/basic/unicode.html)了，總之大部分都可能是因為網頁儲存成 [Big5](https://zh.wikipedia.org/zh-hant/%E5%A4%A7%E4%BA%94%E7%A2%BC) 編碼方式，而瀏覽器是設定成 [UTF-8](https://zh.wikipedia.org/wiki/UTF-8) 的編碼方式，以致於無法正確顯示中文。
+
+所以，如果你也遇到「亂碼」，那你可以先確認一下網頁的編碼方式是 `utf-8` 還是 `big5`。由於某些歷史緣故，建議直接採用 `utf-8` 編碼方式，不只可以正確中文，也可以正確顯示其他語言的文字。
+
+```html
+<meta charset="utf-8">
 ```
 
 ## 撰寫 HTML 文件
@@ -588,7 +602,7 @@ zh-Hant-TW 臺灣使用的繁體中文
 
 ![作業](https://dl.dropboxusercontent.com/u/9320006/%E5%8C%97%E5%95%86%20CDM%20%E5%AF%A6%E7%BF%92%E6%8B%9B%E5%8B%9F%E7%B6%B2%E7%AB%99.png)
 
-+ [解答](homework.html)
++ [解答](sample-01.html)
 
 ## 參考資料
 
