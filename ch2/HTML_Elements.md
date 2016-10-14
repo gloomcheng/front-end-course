@@ -316,3 +316,99 @@
     </tr>
   </tbody>
 </table>
+
+### 排版
+
+在網頁開發實例中，我們會經常看到 `<div>` 與 `<span>` 元素的運用，這兩個元素不像前面介紹的元素有特定的功能和適用場合，純粹是為了便於排版（layout）所用。例如，我們想設計一個頁面有「頁首」、「左側欄」、「主要內容」和「頁尾」的排版樣式，我們就會利用 `<div>` 元素來設計出 HTML 文件，再透過 CSS 樣式表的套用，排出我們想要的樣式。
+
+```html
+<body>
+  <div style="border: 1px solid #ccc; background: pink;">
+    <h1>這裡是網頁標題</h1>
+    <p>歡迎來到我的網站</p>
+  </div>
+  <div style="border: 1px solid #ccc; background: blue; min-height: 200px;">
+    <div class="left-sidebar" style="border: 1px solid #ccc; background: green; float: left; min-height: 200px; width: 20%;">
+      <p>這裡是側邊欄</p>
+    </div>
+    <div class="main-content" style="border: 1px solid #ccc; background: yellow; float: left; min-height: 200px; width: 60%;">
+      <p>這裡是主要內容段落</p>
+      <p>這裡是主要內容段落</p>
+      <p>這裡是主要內容段落</p>
+      <p>這裡是主要內容段落</p>
+      <p>這裡是主要內容段落</p>
+    </div>
+    <div class ="right-sidebar" style="border: 1px solid #ccc; background: green; min-height: 200px;">
+      <p>這裡是右側欄</p>
+    </div>
+  </div>
+  <div style="border: 1px solid #ccc; background: pink;">
+    <p>這裡是頁尾資訊</p>
+  </div>
+</body>
+```
+
+由於 HTML4 大量使用 `<div>` 來進行網頁排版的設計，造成 HTML 文件失去該有的語義，所以 HTML5 加入許多新的元素，就是為了便於排版所設計的。
+
+![HTML5 排版元素](http://www.w3schools.com/html/img_sem_elements.gif)
+
++ `<header>`<img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_32.png" alt="HTML5 LOGO" width="16" height="16">：定義文章的頁首資訊。請注意，與 `<head>` 不同，`<header>` 元素是放在 `<body>` 元素內
++ `<nav>`<img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_32.png" alt="HTML5 LOGO" width="16" height="16">：用來存放導覽列的內容
++ `<section>`<img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_32.png" alt="HTML5 LOGO" width="16" height="16">：可以定義文章的章節，用以區分不同章節的內容，例如第一章內可以有 `<h1>` 元素、第二章內也可以有 `<h1>` 元素，而這兩個 `<h1>` 元素都可以在其脈絡下提供適當的語義（早期沒有 `<section>` 元素，若文件內同時有兩個 `<h1>` 元素較無法從網頁原始碼看出個別元素代表的標題意義為何）
++ `<article>`<img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_32.png" alt="HTML5 LOGO" width="16" height="16">：存放文章的主要內容
++ `<aside>`<img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_32.png" alt="HTML5 LOGO" width="16" height="16">：提供內容相關的輔助內容，類似「側邊欄」的效果
++ `<footer>`<img src="https://www.w3.org/html/logo/downloads/HTML5_Badge_32.png" alt="HTML5 LOGO" width="16" height="16">：定義文章的頁尾資訊
+
+##### 牛刀小試
+
+試試看，將上述範例的網頁內容順序調整如下，然後透過修改 `style` 屬性來排出如下圖的效果。
+
+```html
+<body>
+  <div style="border: 1px solid #ccc; background: pink;">
+    <h1>這裡是網頁標題</h1>
+    <p>歡迎來到我的網站</p>
+  </div>
+  <div style="border: 1px solid #ccc; background: blue; min-height: 200px;">
+    <div class="main-content" style="">
+      <p>這裡是主要內容段落</p>
+      <p>這裡是主要內容段落</p>
+      <p>這裡是主要內容段落</p>
+      <p>這裡是主要內容段落</p>
+      <p>這裡是主要內容段落</p>
+    </div>
+    <div class="left-sidebar" style="">
+      <p>這裡是側邊欄</p>
+    </div>
+    <div class ="right-sidebar" style="">
+      <p>這裡是右側欄</p>
+    </div>
+  </div>
+  <div style="border: 1px solid #ccc; background: pink;">
+    <p>這裡是頁尾資訊</p>
+  </div>
+</body>
+</html>
+```
+
+![成果預覽](https://dl.dropboxusercontent.com/u/9320006/%E7%B6%B2%E9%A0%81%E6%8E%92%E7%89%88%E7%AF%84%E4%BE%8B.png)
+
+### 嵌入其他網頁
+
+```html
+<iframe width="640" height="360"
+  src="https://www.youtube.com/embed/vCKESBmlP9o"
+  frameborder="0" allowfullscreen></iframe>
+```
+
+<iframe width="640" height="360" src="https://www.youtube.com/embed/vCKESBmlP9o" frameborder="0" allowfullscreen></iframe>
+
+`<iframe>` 元素可用來將其他網頁內容的資訊嵌入到 HTML 文件，例如我們可以將 YouTube 影片或 Google 地圖嵌入到我們的網頁中。
+
+## 課後練習
+
+請運用今天課程學到的知識，試著編寫出類似下圖排版樣式的 HTML 文件。
+
+![作業](https://dl.dropboxusercontent.com/u/9320006/%E5%8C%97%E5%95%86%20CDM%20%E5%AF%A6%E7%BF%92%E6%8B%9B%E5%8B%9F%E7%B6%B2%E7%AB%99.png)
+
++ [解答](sample-01/index.html)
