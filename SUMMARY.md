@@ -12,4 +12,5 @@
    * [套用 CSS 樣式的方法](ch3/How_to_Style_HTML_with_CSS.md)
    * [CSS 選擇器](ch3/CSS_Selector.md)
 * [練習範例1](example/ex01/README.md)
+* [練習範例2](example/ex02/README.md)
 
